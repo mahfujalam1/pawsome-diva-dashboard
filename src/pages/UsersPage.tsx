@@ -104,8 +104,6 @@ const UsersPage: React.FC = () => {
                 <div style={{ fontSize: 15, fontWeight: 600, color: '#1A1A2E' }}>{selectedUser.joinedDate}</div>
               </div>
             </div>
-            
-            <Button block style={{ marginTop: 24, height: 44, borderRadius: 10, background: 'linear-gradient(180deg, #FF5CA8 0%, #FF8A80 100%)', color: 'white', border: 'none', fontWeight: 700 }}>Send Message</Button>
           </div>
         )}
       </Modal>
