@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FiMail } from "react-icons/fi";
+import { toast } from "react-toastify";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
@@ -10,7 +11,7 @@ export default function ForgotPasswordPage() {
     if (email.trim()) {
       navigate("/reset-sent", { state: { email } });
     } else {
-      alert("Please enter your email");
+      toast.error("Please enter your email");
     }
   };
 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
+import { toast } from "react-toastify";
 
 const inputWrapStyle: React.CSSProperties = { position: 'relative' }
 const iconStyle: React.CSSProperties = { position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: '#D1D5DB', fontSize: 14 }
@@ -22,12 +23,12 @@ export default function LoginPage() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !password) { alert("Please enter email and password"); return; }
+    if (!email || !password) { toast.error("Please enter email and password"); return; }
     setLoading(true);
     const ok = await login(email, password);
     setLoading(false);
-    if (ok) { alert("Welcome back, Raquel! 🐾"); navigate("/dashboard"); }
-    else { alert("Invalid credentials. Try: raquel@pawsomediva.com / admin123"); }
+    if (ok) { toast.success("Welcome back, Raquel! 🐾"); navigate("/dashboard"); }
+    else { toast.error("Invalid credentials. Try: raquel@pawsomediva.com / admin123"); }
   };
 
   return (
